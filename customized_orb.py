@@ -7,7 +7,7 @@ from skimage.feature.util import (FeatureDetector, DescriptorExtractor,
 from skimage.feature import (corner_fast, corner_orientations, corner_peaks,
                        corner_harris)
 from skimage.transform import pyramid_gaussian
-from skimage._shared.utils import check_nD
+from skimage._shared.utils import assert_nD
 
 from skimage.feature.orb_cy import _orb_loop
 
@@ -160,7 +160,7 @@ class CustomizedORB(FeatureDetector, DescriptorExtractor):
         image : 2D array
             Input image.
         """
-        check_nD(image, 2)
+        assert_nD(image, 2)
 
         pyramid = self._build_pyramid(image)
 
@@ -229,7 +229,7 @@ class CustomizedORB(FeatureDetector, DescriptorExtractor):
         orientations : (N, ) array
             Corresponding orientations in radians.
         """
-        check_nD(image, 2)
+        assert_nD(image, 2)
 
         pyramid = self._build_pyramid(image)
 
@@ -272,7 +272,7 @@ class CustomizedORB(FeatureDetector, DescriptorExtractor):
         image : 2D array
             Input image.
         """
-        check_nD(image, 2)
+        assert_nD(image, 2)
 
         pyramid = self._build_pyramid(image)
 
